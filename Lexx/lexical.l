@@ -27,16 +27,16 @@ goto {printf("\n\t%s is a keyword",yytext);}
 
 {identifier}\( {if(!COMMENT)printf("\nFUNCTION \n\t%s",yytext);}
 
-\{  {if(!COMMENT)printf("\n BLOCK BEGINS");}
-\}  {if(!COMMENT)printf("BLOCK ENDS ");}
+\{ {if(!COMMENT)printf("\n BLOCK BEGINS");}
+\} {if(!COMMENT)printf("BLOCK ENDS ");}
 
 {identifier}(\[[0-9]*\])? {if(!COMMENT) printf("\n %s IDENTIFIER",yytext);}
 
 \".*\" {if(!COMMENT)printf("\n\t %s is a STRING",yytext);}
 [0-9]+ {if(!COMMENT) printf("\n %s is a NUMBER ",yytext);}
 
-\)(\:)? {if(!COMMENT)printf("\n\t");ECHO;printf("\n");}
 \( ECHO;
+\)(\:)? {if(!COMMENT)printf("\n\t");ECHO;printf("\n");}
 
 = {if(!COMMENT)printf("\n\t %s is an ASSIGNMENT OPERATOR",yytext);}
 \<= |
@@ -48,17 +48,17 @@ goto {printf("\n\t%s is a keyword",yytext);}
 
 int main(int argc, char **argv)
 {
-FILE *file;
-file=fopen("input.txt","r");
-if(!file)
-{
-printf("could not open the file");
-exit(0);
-}
-yyin=file;
-yylex();
-printf("\n");
-return(0);
+    FILE *file;
+    file=fopen("input.txt","r");
+    if(!file)
+    {
+        printf("could not open the file");
+        exit(0);
+    }
+    yyin=file;
+    yylex();
+    printf("\n");
+    return(0);
 }
 int yywrap()
 {
