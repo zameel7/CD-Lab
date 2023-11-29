@@ -3,17 +3,14 @@
 #include <ctype.h>
 
 char input[10];
-int i, error;
+int i=0, error=0;
 void E();
 void T();
 void Eprime();
 void Tprime();
 void F();
 
-void main()
-{
-     i = 0;
-     error = 0;
+void main() {
      printf("Enter an arithmetic expression:  ");
      scanf("%s", input);
      E();
@@ -23,44 +20,36 @@ void main()
           printf("\nRejected\n");
 }
 
-void E()
-{
+void E() {
      T();
      Eprime();
 }
 
-void Eprime()
-{
-     if (input[i] == '+')
-     {
+void Eprime() {
+     if (input[i] == '+') {
           i++;
           T();
           Eprime();
      }
 }
 
-void T()
-{
+void T() {
      F();
      Tprime();
 }
 
-void Tprime()
-{
-     if (input[i] == '*')
-     {
+void Tprime() {
+     if (input[i] == '*') {
           i++;
           F();
           Tprime();
      }
 }
 
-void F()
-{
+void F() {
      if (isalnum(input[i]))
           i++;
-     else if (input[i] == '(')
-     {
+     else if (input[i] == '(') {
           i++;
           E();
           if (input[i] == ')')
