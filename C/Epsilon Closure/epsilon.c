@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 
-char result[20][20],copy[3],states[20][20];
+char result[20][20],state[3],states[20][20];
 
 void add_state(char a[3],int i){
 	strcpy(result[i],a);
@@ -9,7 +9,7 @@ void add_state(char a[3],int i){
 
 void display(int n){
 	int k=0;
-	printf("\n\n\n Epsilon closure of %s = { ",copy);
+	printf("\n\n\n Epsilon closure of %s = { ",state);
 	while(k < n){
 		printf(" %s",result[k]);
 		k++;
@@ -20,7 +20,6 @@ void display(int n){
 int main(){
     FILE *INPUT;
     INPUT=fopen("input.txt","r");
-    char state[3];
     int end,i=0,n,k=0;
     char state1[3],input[3],state2[3];
     printf("\n Enter the no of states: ");
@@ -34,7 +33,6 @@ int main(){
 	for( k=0;k<n;k++){
 		i=0;
 		strcpy(state,states[k]);
-		strcpy(copy,state);
 		add_state(state,i++);
 		while(1){
 			end = fscanf(INPUT,"%s%s%s",state1,input,state2);
