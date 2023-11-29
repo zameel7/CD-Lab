@@ -21,8 +21,8 @@ void main()
 	for(i=0, j=0; j<c; i++,j++) {
 		stk[i]=inputString[j];
 		stk[i+1]='\0';
-		printf("\n$%s\t%s$\t%s %c",stk,inputString,"SHIFT", inputString[j]);
 		inputString[j]=' ';
+		printf("\n$%s\t%s$\t%s %c",stk,inputString,"SHIFT", stk[i]);
 		check();
 	}
 	printf("\n\n");
@@ -38,6 +38,7 @@ void check() {
 		if(stk[z]=='a' || stk[z]=='b') {
 			replaceandprint();
 			i = i+2;
+			break;
 		}
 	}
 	for(z=0; z<c; z++) {
