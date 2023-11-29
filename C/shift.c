@@ -3,7 +3,7 @@
 #include<ctype.h>
 
 int z=0,i=0,j=0,c=0;
-char a[16],ac[20],stk[15],act[10];
+char inputString[16],stk[15];
 
 void check();
 void replaceandprint();
@@ -13,16 +13,16 @@ void main()
 	printf("\nGRAMMAR :\n E->E+E \n E->E*E \n E->E/E \n E->a\n E->b\n");
 
 	puts("Enter input string: ");
-	gets(a);
+	gets(inputString);
 
-	c=strlen(a);
+	c=strlen(inputString);
 
 	puts("Stack \t Input \t\t Action");
 	for(i=0, j=0; j<c; i++,j++) {
-		stk[i]=a[j];
+		stk[i]=inputString[j];
 		stk[i+1]='\0';
-		a[j]=' ';
-		printf("\n$%s\t%s$\t%s",stk,a,"SHIFT");
+		inputString[j]=' ';
+		printf("\n$%s\t%s$\t%s",stk,inputString,"SHIFT");
 		check();
 	}
 	printf("\n\n");
@@ -54,6 +54,6 @@ void replaceandprint(){
 	stk[z]='E';
 	stk[z+1]='\0';
 	stk[z+2]='\0';
-	printf("\n$%s\t%s$\t%s",stk,a,"REDUCE TO E");
+	printf("\n$%s\t%s$\t%s",stk,inputString,"REDUCE TO E");
 	i=i-2; 
 }
