@@ -17,7 +17,7 @@ struct exp
     char op;
 } k[15];
 
-void main()
+int main()
 {
     printf("\t\tINTERMEDIATE CODE GENERATION\n\n");
     
