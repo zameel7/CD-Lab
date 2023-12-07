@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 
-char result[20][20],copy[3],states[20][20];
+char result[20][20],states[20][20];
 
 void add_state(char a[3],int i){
 	strcpy(result[i],a);
