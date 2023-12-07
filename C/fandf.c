@@ -3,13 +3,13 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
-int n, m = 0, p, i = 0, j = 0;
+int n, m = 0, i = 0, j = 0;
 char a[10][10], f[10];
 void follow(char c);
 void first(char c);
 int main()
 {
-    int i, z;
+    int z;
     char c, ch;
     printf("Enter the no of productions:\n");
     scanf("%d", &n);
