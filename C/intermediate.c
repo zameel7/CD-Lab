@@ -3,7 +3,7 @@
 #include <string.h> // Include the string library
 
 // Global variables
-int i = 1, j = 0, no = 0, tmpch = 90; // i, j, no are counters, tmpch is a temporary character
+int i = 1, j = 0, tmpch = 90; // i, j, no are counters, tmpch is a temporary character
 char str[100], left[15], right[15]; // str is the input string, left and right are substrings
 
 // Function prototypes
@@ -70,33 +70,28 @@ void explore()
         i++; // Increment the counter
     }
     fright(-1);
-    if (no == 0)
-    {
-        fleft(strlen(str));
-        printf("\t%s := %s\n", right, left); // Print the final result
-        getchar();
-        exit(0);
-    }
 
-    printf("\t%s := %c", right, str[k[--i].pos]); // Print the final result
+    fleft(strlen(str));
+    printf("\t%s := %s\n", right, left); // Print the final result
     getchar();
+    exit(0);
 }
 
 // Function to find the left part of an expression
 void fleft(int x)
 {
-    int w = 0, flag = 0; // Initialize counters
+    int w = 0; // Initialize counters
     x--; // Decrement the position
 
     // Loop through the string backwards until an operator or the start of the string is found
     while (x != -1 && str[x] != '+' && str[x] != '*' && str[x] != '=' && str[x] != '\0' && str[x] != '-' && str[x] != '/' && str[x] != ':')
     {
-        if (str[x] != '$' && flag == 0) // If the current character is not $ and the flag is 0
+        if (str[x] != '$') // If the current character is not $
         {
             left[w++] = str[x]; // Add the character to the left string and increment the counter
             left[w] = '\0'; // End the string
             str[x] = '$'; // Replace the character in the string with $
-            flag = 1; // Set the flag to 1
+            return;
         }
         x--; // Decrement the position
     }
@@ -105,18 +100,18 @@ void fleft(int x)
 // Function to find the right part of an expression
 void fright(int x)
 {
-    int w = 0, flag = 0; // Initialize counters
+    int w = 0; // Initialize counters
     x++; // Increment the position
 
     // Loop through the string forwards until an operator or the end of the string is found
     while (x != -1 && str[x] != '+' && str[x] != '*' && str[x] != '\0' && str[x] != '=' && str[x] != ':' && str[x] != '-' && str[x] != '/')
     {
-        if (str[x] != '$' && flag == 0) // If the current character is not $ and the flag is 0
+        if (str[x] != '$') // If the current character is not $
         {
             right[w++] = str[x]; // Add the character to the right string and increment the counter
             right[w] = '\0'; // End the string
             str[x] = '$'; // Replace the character in the string with $
-            flag = 1; // Set the flag to 1
+            return;
         }
         x++; // Increment the position
     }
