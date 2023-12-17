@@ -33,7 +33,7 @@ int main(){
 	for( k=0;k<n;k++){
 		i=0;
 		strcpy(state,states[k]);
-		add_state(state,i++);
+		strcpy(result[i++], state);
 		while(1){
 			end = fscanf(INPUT,"%s%s%s",state1,input,state2);
 			if (end == EOF ){
@@ -44,7 +44,7 @@ int main(){
 			if( strcmp(state,state1) == 0 ){
 				if( strcmp(input,"e") == 0 && strcpy(state2, state) != 0) {
                     printf("\n %s is e of %s", state2, state);
-					add_state(state2,i++);
+					strcpy(result[i++], state2);
 					strcpy(state, state2);
 				}
 			}

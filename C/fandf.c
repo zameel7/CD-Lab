@@ -46,12 +46,14 @@ void first(char c) {
     int k;
     if (!isupper(c))
         f[m++] = c;
-    for (k = 0; k < n; k++) {
-        if (a[k][0] == c) {
-            if (a[k][2] == '$' || islower(a[k][2]))
-                f[m++] = a[k][2];
-            else
-                first(a[k][2]);
+    else {
+        for (k = 0; k < n; k++) {
+            if (a[k][0] == c) {
+                if (a[k][2] == '$' || islower(a[k][2]))
+                    f[m++] = a[k][2];
+                else
+                    first(a[k][2]);
+            }
         }
     }
 }
