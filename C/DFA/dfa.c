@@ -68,7 +68,7 @@ int main() {
                     state = 0;
                 } else if (state == 2)
                 {
-                    state = 2;
+                    state = 0;
                 }
                 break;
             
