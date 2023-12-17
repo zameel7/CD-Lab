@@ -9,7 +9,7 @@
 %%
 
 int main(){
-    yyin = fopen("input.txt","r");
+    yyin = fopen("inputforstringreplace.txt","r");
     yyout = fopen("outputfile.txt","w");
     yylex();
     printf("\nNo. of printf statement: %d",pc);
