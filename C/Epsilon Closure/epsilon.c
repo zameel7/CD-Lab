@@ -42,9 +42,9 @@ int main(){
             printf("\n1: %s, 2: %s, 3: %s", state1, input, state2);
 
 			if( strcmp(state,state1) == 0 ){
-				if( strcmp(input,"e") == 0 && strcpy(state2, state) != 0) {
+				if( strcmp(input,"e") == 0) {
                     printf("\n %s is e of %s", state2, state);
-					strcpy(result[i++], state2);
+					if(strcmp(state2, states[k]) != 0) strcpy(result[i++], state2);
 					strcpy(state, state2);
 				}
 			}
