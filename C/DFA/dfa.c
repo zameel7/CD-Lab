@@ -28,9 +28,8 @@
 //     return 0;
 // }
 
-// The above code is just a simple DFA that accepts strings ending with 10. It is not how the exact implementation shoud be.
-// Correct implementation of DFA is as follows:
 
+// Correct implementation of DFA is as follows:
 // This is a dfa problem that accepts string with 1 or 0 and ending with '11'.
 
 #include<stdio.h>
