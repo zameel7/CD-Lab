@@ -1,1 +1,32 @@
-jëhn·š‘Æ¬yÈZ­Ê,µÊ'¶)îy×Ÿjémv‡h¹¹^z[z{¦{^®wå¡«_¢¸(¶ˆŸŠ{e¢x+z¬µêëzÛ«·­º¹ì†Ší²('yÛ"Íê²Ö­‰Ë-®ç-³­rr¥ç^~éâ¢{§²('yÛè‰Ûè•«b•ì!
+auto
+break
+case
+char
+cost
+continue
+default
+do
+double
+else
+enum
+extern
+float
+for
+goto
+if int
+long
+register
+return
+return
+short
+signed
+sizeof
+static
+struct
+switch
+typedef
+union
+unsigned
+void
+volatile
+while
