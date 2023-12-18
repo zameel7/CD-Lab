@@ -45,9 +45,9 @@ int main() // The main function where the program starts
         }
 
         // Print the target code to the console
-        printf("\n\tMov %c,R%d", str[2], i);
-        printf("\n\t%s%c,R%d", opr, str[4], i);
-        printf("\n\tMov R%d,%c", i, str[0]);
+        printf("\n\tMOV %c, R%d", str[2], i);
+        printf("\n\t%s %c, R%d", opr, str[4], i);
+        printf("\n\tMOV R%d, %c", i, str[0]);
     } while (strcmp(icode[++i], "exit") != 0); // Continue looping until "exit" is encountered
 
     printf("\n"); // Print a newline character to the console
@@ -55,7 +55,7 @@ int main() // The main function where the program starts
 }
 
 // Example input for this
-// a = b + c
-// b = a - c
-// c = a * b
+// a=b+c
+// b=a-c
+// c=a*b
 // exit
