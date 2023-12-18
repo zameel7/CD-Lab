@@ -2,6 +2,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 int main() {
     char keywords[32][10];
@@ -23,24 +24,22 @@ int main() {
     fclose(keywordFile);
 
     sampleFile = fopen("sample.c", "r");
+    int comment = 0;
     while(fscanf(sampleFile, "%s", fileread) != EOF)
     {
         char *pch;
-        int iskeyword = 0;
-        pch = strtok(fileread, " ,;#%{}()");
-        if (pch != NULL) {
-            for (i=0; i<32; i++) {
-                if (strcmp(pch, keywords[i]) == 0) {
-                    strncpy(&keywordused[keywordCount++][10], keywords[i], 10);
-                    iskeyword = 1;
-                    break;
-                }
-            }
-        }
+        int iskeyword = 0, punct = 0;
+
         for (i=0; i < strlen(fileread); i++) {
             char letter = fileread[i];
+            if (letter == '"')
+            {
+                comment = (comment - 1)*-1;
+            }
+            
             if (ispunct(letter)) {
                 int unique = 1;
+                punct = 1;
                 for (int j=0; j<20; j++) {
                     if (punctuators[j][0] == letter) {
                         unique = 0;
@@ -49,6 +48,21 @@ int main() {
                 }
                 if (unique) {
                     punctuators[punctuatorCount++][0] = letter;
+                }
+            }
+        }
+
+        if(punct == 1 || comment == 1) {
+            continue;
+        } 
+
+        pch = strtok(fileread, " ,;#%{}()");
+        if (pch != NULL) {
+            for (i=0; i<32; i++) {
+                if (strcmp(pch, keywords[i]) == 0) {
+                    strncpy(&keywordused[keywordCount++][10], keywords[i], 10);
+                    iskeyword = 1;
+                    break;
                 }
             }
         }
@@ -76,5 +90,5 @@ int main() {
     printf("\n");
 
     fclose(sampleFile);
-
+    return 0;
 }
