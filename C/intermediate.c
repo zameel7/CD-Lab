@@ -64,15 +64,16 @@ void explore()
 
         str[k[i].pos] = tmpch--; // Replace the operator with a temporary character
 
-        printf("\t%c := %s%c%s\t\t", str[k[i].pos], left, k[i].op, right); // Print the intermediate code
-        printf("\n");
+        printf("\t%c := %s%c%s\t\t\n", str[k[i].pos], left, k[i].op, right); // Print the intermediate code
 
         i++; // Increment the counter
     }
-    fright(-1);
 
-    fleft(strlen(str));
+    fright(-1); // Find the right part of the last expression
+    fleft(strlen(str)); // Find the left part of the last expression
+
     printf("\t%s := %s\n", right, left); // Print the final result
+    
     getchar();
     exit(0);
 }
