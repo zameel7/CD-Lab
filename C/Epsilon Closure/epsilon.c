@@ -3,10 +3,6 @@
 
 char result[20][20],states[20][20];
 
-void add_state(char a[3],int i){
-	strcpy(result[i],a);
-}
-
 void display(int n, char states[3]){
 	int k=0;
 	printf("\n\n\n Epsilon closure of %s = { ",states);
