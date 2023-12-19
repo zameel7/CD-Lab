@@ -15,11 +15,6 @@ int main()
 
     int i = 0;                                                 // Declare and initialize a counter for the while loop
     printf("Reading keywords:\n");                             // Print a message indicating the start of keyword reading
-    while (fscanf(keywordFile, "%s", &keywords[i++][10]) == 1) // Read keywords from the file one by one until EOF
-    {
-        printf("-"); // Print a dash for each keyword read
-    }
-    printf("-> Keywords read\n");                              // Print a message indicating the end of keyword reading
     while (fscanf(keywordFile, "%s", &keywords[i++][10]) == 1) // Read keywords from the keyword file until EOF
     {
         printf("-"); // Print a dash for each keyword read
