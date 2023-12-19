@@ -10,7 +10,7 @@ void Eprime();
 void Tprime();
 void F();
 
-void main() {
+int main() {
      printf("Enter an arithmetic expression:  ");
      scanf("%s", input);
      E();
@@ -18,6 +18,7 @@ void main() {
           printf("\nAccepted\n");
      else
           printf("\nRejected\n");
+     return 0;
 }
 
 void E() {
@@ -60,3 +61,6 @@ void F() {
      else
           error = 1;
 }
+
+
+// Example input: (5+3)*4
