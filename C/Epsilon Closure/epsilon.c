@@ -21,7 +21,7 @@ int main(){
     printf("\n Enter the no of states: ");
     scanf("%d",&n);
     printf("\n Enter the states: \n");
-    for(k=0;k<3;k++){
+    for(k=0;k<n;k++){
         printf("%d: ", k+1);
 		scanf("%s",states[k]);
 	}
@@ -30,11 +30,8 @@ int main(){
 		i=0;
 		strcpy(state,states[k]);
 		strcpy(result[i++], state);
-		while(1){
-			end = fscanf(INPUT,"%s%s%s",state1,input,state2);
-			if (end == EOF ){
-				break;
-			}
+		while(fscanf(INPUT,"%s%s%s",state1,input,state2) != EOF){
+			
             printf("\n1: %s, 2: %s, 3: %s", state1, input, state2);
 
 			if( strcmp(state,state1) == 0 ){
