@@ -7,6 +7,15 @@ int n, m = 0, i = 0, j = 0;
 char a[10][10], f[10];
 void follow(char c);
 void first(char c);
+
+void display(char str[10], char c){
+    printf("%s(%c)={", str, c);
+    for (i = 0; i < m; i++)
+        printf("%c", f[i]);
+    printf("}\n");
+    strcpy(f, " ");
+}
+
 int main()
 {
     int z;
@@ -22,18 +31,11 @@ int main()
         scanf("%c", &c);
 
         first(c);
-        printf("First(%c)={", c);
-        for (i = 0; i < m; i++)
-            printf("%c", f[i]);
-        printf("}\n");
-        strcpy(f, " ");
+        display("First", c);
 
         m = 0;
         follow(c);
-        printf("Follow(%c)={", c);
-        for (i = 0; i < m; i++)
-            printf("%c", f[i]);
-        printf("}\n");
+        display("Follow", c);
 
         printf("Continue(0/1)?");
         scanf("%d%c", &z, &ch);
