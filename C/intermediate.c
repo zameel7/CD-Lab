@@ -50,7 +50,7 @@ void findopr()
     oprloop('/'); // Find /
     oprloop('*'); // Find *
     oprloop('+'); // Find +
-    oprloop('-'); // Find - 
+    oprloop('-'); // Find -
 }
 
 // Function to generate the intermediate code
@@ -64,16 +64,15 @@ void explore()
 
         str[k[i].pos] = tmpch--; // Replace the operator with a temporary character
 
-        printf("\t%c := %s%c%s\t\t\n", str[k[i].pos], left, k[i].op, right); // Print the intermediate code
+        printf("\t%c := %s%c%s\t\t", str[k[i].pos], left, k[i].op, right); // Print the intermediate code
+        printf("\n");
 
         i++; // Increment the counter
     }
+    fright(-1);
 
-    fright(-1); // Find the right part of the last expression
-    fleft(strlen(str)); // Find the left part of the last expression
-
+    fleft(strlen(str));
     printf("\t%s := %s\n", right, left); // Print the final result
-    
     getchar();
     exit(0);
 }
@@ -105,7 +104,7 @@ void fright(int x)
     x++; // Increment the position
 
     // Loop through the string forwards until an operator or the end of the string is found
-    while (x != -1 && str[x] != '+' && str[x] != '*' && str[x] != '=' && str[x] != '\0' && str[x] != '-' && str[x] != '/' && str[x] != ':')
+    while (x != -1 && str[x] != '+' && str[x] != '*' && str[x] != '\0' && str[x] != '=' && str[x] != ':' && str[x] != '-' && str[x] != '/')
     {
         if (str[x] != '$') // If the current character is not $
         {
@@ -117,3 +116,5 @@ void fright(int x)
         x++; // Increment the position
     }
 }
+
+// Example input=> a:=b+c*d-e
